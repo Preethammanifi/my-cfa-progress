@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tableau Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tableau Learning Progress</h1>
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="progress-section">
+      <h2>Topic Completion</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="tb-basics"> Tableau Basics</li>
+        <li><input type="checkbox" id="tb-data"> Data Connection & Preparation</li>
+        <li><input type="checkbox" id="tb-visual"> Visual Analytics</li>
+        <li><input type="checkbox" id="tb-calculations"> Calculated Fields & LOD Expressions</li>
+        <li><input type="checkbox" id="tb-dashboards"> Dashboards & Stories</li>
+        <li><input type="checkbox" id="tb-ml"> Advanced Analytics (ML & Forecasting)</li>
+      </ul>
+    </section>
+
+    <section class="notes-section">
+      <h2>My Notes</h2>
+      <textarea id="tableau-notes" placeholder="Write your notes here..."></textarea>
+    </section>
+
+    <section class="resources-section">
+      <h2>Useful Resources</h2>
+      <ul>
+        <li><a href="https://www.tableau.com/learn/training" target="_blank">Tableau Official Training</a></li>
+        <li><a href="https://www.datacamp.com/" target="_blank">DataCamp (Tableau Courses)</a></li>
+        <li><a href="https://public.tableau.com/en-us/s/" target="_blank">Tableau Public Gallery</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
