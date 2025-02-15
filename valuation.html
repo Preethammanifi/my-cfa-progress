@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valuation Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Valuation Progress</h1>
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="progress-section">
+      <h2>Topic Completion</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" id="val-dcf"> DCF Valuation</li>
+        <li><input type="checkbox" id="val-comps"> Comparable Company Analysis</li>
+        <li><input type="checkbox" id="val-precedent"> Precedent Transactions</li>
+        <li><input type="checkbox" id="val-sum"> Sum of the Parts</li>
+        <li><input type="checkbox" id="val-liquidation"> Liquidation Analysis</li>
+      </ul>
+    </section>
+
+    <section class="notes-section">
+      <h2>My Notes</h2>
+      <textarea id="valuation-notes" placeholder="Write your notes here..."></textarea>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
