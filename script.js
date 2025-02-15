@@ -1,45 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-  updateProgress('cfa', 30);
-  updateProgress('modeling', 20);
-  updateProgress('valuation', 10);
-  updateProgress('python', 5);
-  updateProgress('tableau', 0);
-
-  loadChecklist();
-  loadNotes();
+    loadChecklist();
+    loadNotes();
 });
 
-function updateProgress(topic, percent) {
-  document.getElementById(`${topic}-progress`).value = percent;
-  document.getElementById(`${topic}-percent`).textContent = percent + '%';
-}
-
-// Checklist Functionality
+// ✅ Fix Checklist Persistence
 const checkboxes = document.querySelectorAll(".checklist input");
+
 checkboxes.forEach(box => {
-  box.addEventListener("change", saveChecklist);
+    box.addEventListener("change", () => {
+        saveChecklist();
+    });
 });
 
 function saveChecklist() {
-  let checkedItems = {};
-  checkboxes.forEach(box => checkedItems[box.id] = box.checked);
-  localStorage.setItem("cfaChecklist", JSON.stringify(checkedItems));
+    let checkedItems = {};
+    checkboxes.forEach(box => {
+        checkedItems[box.id] = box.checked; // Store checkbox ID and its state (checked or not)
+    });
+    localStorage.setItem(document.title + "-Checklist", JSON.stringify(checkedItems));
 }
 
 function loadChecklist() {
-  let savedItems = JSON.parse(localStorage.getItem("cfaChecklist")) || {};
-  checkboxes.forEach(box => {
-    if (savedItems[box.id]) {
-      box.checked = true;
-    }
-  });
+    let savedItems = JSON.parse(localStorage.getItem(document.title + "-Checklist")) || {};
+    checkboxes.forEach(box => {
+        if (savedItems[box.id]) {
+            box.checked = true; // Restore the checked state
+        }
+    });
 }
 
-// Notes Functionality
-const notesArea = document.getElementById("notes");
+// ✅ Fix Notes Persistence
+const notesArea = document.querySelector("textarea");
 if (notesArea) {
-  notesArea.addEventListener("input", () => {
-    localStorage.setItem("cfaNotes", notesArea.value);
-  });
-  notesArea.value = localStorage.getItem("cfaNotes") || "";
+    notesArea.addEventListener("input", () => {
+        localStorage.setItem(document.title + "-Notes", notesArea.value);
+    });
+    notesArea.value = localStorage.getItem(document.title + "-Notes") || "";
 }
